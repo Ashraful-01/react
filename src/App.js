@@ -74,21 +74,7 @@ class App extends Component {
         <h1 style={Style}>Book List</h1>
         <button onClick={() => this.ChangeBookState("The AalChemist")}>Change state</button>
         <input type="Text" onChange={this.ChangeWithInputState} />
-
-        <Book
-          bookName={this.state.books[0].bookName}
-          Writer={this.state.books[0].Writer}
-          InputBook={this.ChangeWithInputState}
-        />
-        <Book
-          bookName={this.state.books[1].bookName}
-          Writer={this.state.books[1].Writer} />
-        <Book
-          bookName={this.state.books[2].bookName}
-          Writer={this.state.books[2].Writer} />
-        <Book
-          bookName={this.state.books[3].bookName}
-          Writer={this.state.books[3].Writer} change={this.ChangeBookState.bind(this, "nineteen 84")} />
+        {books}
       </div>
     );
   }
