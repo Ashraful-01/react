@@ -47,7 +47,7 @@ class App extends Component {
   // }
   render() {
     const Style = {
-      border: "1px solid red",
+      border: "1px red",
       borderRadius: "5px",
       background: "black",
       color: "white"
