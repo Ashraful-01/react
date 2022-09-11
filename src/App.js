@@ -18,6 +18,16 @@ class App extends Component {
 
 
 
+  deleteBookState = index => {
+    const books = this.state.books;
+    books.splice(index, 1);
+    this.setState({
+      books: books
+    })
+  };
+
+
+
 
 
 
@@ -36,11 +46,12 @@ class App extends Component {
 
     const booksState = this.state.books;
 
-    const books = booksState.map(book => {
+    const books = booksState.map((book, index) => {
       return (
         <Book
           bookName={book.bookName}
           Writer={book.Writer}
+          delete={() => this.deleteBookState(index)}
         />
       );
     });

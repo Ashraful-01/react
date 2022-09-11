@@ -4,7 +4,7 @@ import '../Stylesheets/Book.css';
 const Book = props => {
     return (
         <div className='Book'>
-            <h3 onClick={props.change}>Book: {props.bookName} </h3>
+            <h3 onClick={props.delete}>Book: {props.bookName} </h3>
             <h4>Writer: {props.Writer}</h4>
 
 
