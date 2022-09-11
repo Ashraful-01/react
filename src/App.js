@@ -16,27 +16,8 @@ class App extends Component {
 
   }
 
-  ChangeBookState = newBookName => {
-    this.setState({
-      books: [
-        { bookName: newBookName, Writer: "Poulo Koulho" },
-        { bookName: "Jobon Jekhane Jemon", Writer: "Mizanur Rahman" },
-        { bookName: "Thinking Fast and Slow", Writer: "Dan Brown" },
-        { bookName: "Biography of APJ Abul Kalam", Writer: "Anderw hardy" }
-      ]
-    });
-  }
 
-  ChangeWithInputState = event => {
-    this.setState({
-      books: [
-        { bookName: event.target.value, Writer: "Poulo Koulho" },
-        { bookName: "Jobon Jekhane Jemon", Writer: "Mizanur Rahman" },
-        { bookName: "Thinking Fast and Slow", Writer: "Dan Brown" },
-        { bookName: "Biography of APJ Abul Kalam", Writer: "Anderw hardy" }
-      ]
-    });
-  }
+
 
 
 
@@ -72,8 +53,6 @@ class App extends Component {
     return (
       <div className='App'>
         <h1 style={Style}>Book List</h1>
-        <button onClick={() => this.ChangeBookState("The AalChemist")}>Change state</button>
-        <input type="Text" onChange={this.ChangeWithInputState} />
         {books}
       </div>
     );
