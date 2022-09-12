@@ -8,10 +8,10 @@ class App extends Component {
 
   state = {
     books: [
-      { bookName: "The Alchemist", Writer: "Poulo Koulho" },
-      { bookName: "Jobon Jekhane Jemon", Writer: "Mizanur Rahman" },
-      { bookName: "Thinking Fast and Slow", Writer: "Dan Brown" },
-      { bookName: "How to grow Rich", Writer: "Anderw hardy" }
+      { id: 1, bookName: "The Alchemist", Writer: "Poulo Koulho" },
+      { id: 2, bookName: "Jobon Jekhane Jemon", Writer: "Mizanur Rahman" },
+      { id: 3, bookName: "Thinking Fast and Slow", Writer: "Dan Brown" },
+      { id: 4, bookName: "How to grow Rich", Writer: "Anderw hardy" }
     ]
 
   }
@@ -52,6 +52,8 @@ class App extends Component {
           bookName={book.bookName}
           Writer={book.Writer}
           delete={() => this.deleteBookState(index)}
+          key={book.id}
+
         />
       );
     });
