@@ -46,18 +46,21 @@ class App extends Component {
     };
 
     //const booksState = this.state.books;
+    let books = null;
+    if (this.state.showBooks) {
+      books = this.state.books.map((book, index) => {
+        return (
+          <Book
+            bookName={book.bookName}
+            writer={book.writer}
+            delete={() => this.deleteBookState(index)}
+            key={book.id}
+            inputName={(event) => this.changeWithInputState(event, index)}
+          />
+        );
+      });
+    }
 
-    const books = this.state.books.map((book, index) => {
-      return (
-        <Book
-          bookName={book.bookName}
-          writer={book.writer}
-          delete={() => this.deleteBookState(index)}
-          key={book.id}
-          inputName={(event) => this.changeWithInputState(event, index)}
-        />
-      );
-    });
 
     //console.log(booksState);
     console.log(books);
@@ -66,7 +69,7 @@ class App extends Component {
       <div className="App">
         <h1 style={style}>Book List</h1>
         <button onClick={this.toggleBooks}>Toggle Books</button>
-        {this.state.showBooks ? books : null}
+        {books}
       </div>
     );
   }
