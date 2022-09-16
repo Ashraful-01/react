@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Book from './Book'
+import Book from './Book';
+import books from '../assets/books';
+
 
 
 
 class MainComponent extends Component {
 
     state = {
-        books: [
-            { id: 1, bookName: "1984", writer: "George Orwell" },
-            { id: 2, bookName: "The Da Vinci Code", writer: "Dan Brown" },
-            { id: 3, bookName: "The Alchemist", writer: "Paulo Coelho" }
-        ],
+        books: books,
+
         showBooks: true
     }
 
