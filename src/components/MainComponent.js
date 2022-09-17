@@ -50,6 +50,7 @@ class MainComponent extends Component {
         if (this.state.showBooks) {
             books = <BookList books={this.state.books} />
         }
+        console.log(books);
         return (
             <div className="App">
                 <h1 style={style}>Book List</h1>
@@ -59,13 +60,6 @@ class MainComponent extends Component {
         );
     }
 }
-
-
-
-
-
-
-
 
 
 
