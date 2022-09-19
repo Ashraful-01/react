@@ -6,12 +6,17 @@ import BookList from './lists/BookList';
 
 
 class MainComponent extends Component {
-
-    state = {
-        books: booklist,
-
-        showBooks: true
+    constructor(props) {
+        super(props);
+        this.state = {
+            books: booklist,
+            showBooks: true
+        }
+        console.log("MainComponent constructor!");
     }
+
+
+
 
     changeWithInputState = (event, index) => {
         const book = {
@@ -25,7 +30,6 @@ class MainComponent extends Component {
     }
 
     deleteBookState = index => {
-
         const books = [...this.state.books];
         books.splice(index, 1);
         this.setState({
@@ -36,8 +40,15 @@ class MainComponent extends Component {
     toggleBooks = () => {
         this.setState({ showBooks: !this.state.showBooks });
     }
+    UNSAFE_componentWillMount() {
+        console.log("MainCOmponent componentWillMount!");
+    }
+    componentDidMount() {
+        console.log("MainComponent componentDidMount!");
+    }
 
     render() {
+        console.log("MainComponent render");
         const style = {
             border: "1px solid red",
             borderRadius: "5px",
@@ -48,9 +59,13 @@ class MainComponent extends Component {
         //const booksState = this.state.books;
         let books = null;
         if (this.state.showBooks) {
-            books = <BookList books={this.state.books} />
+            books = <BookList
+                books={this.state.books}
+                deleteBookState={this.deleteBookState}
+                changeWithInputState={this.changeWithInputState}
+            />
         }
-        console.log(books);
+
         return (
             <div className="App">
                 <h1 style={style}>Book List</h1>
@@ -60,11 +75,6 @@ class MainComponent extends Component {
         );
     }
 }
-
-
-
-
-
 
 
 
