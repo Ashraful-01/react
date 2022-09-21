@@ -2,28 +2,23 @@ import React, { Component } from 'react';
 import Book from '../representationalComponent/Book';
 
 
-class BookList extends Component {
-    constructor(props) {
-        super(props)
-    }
+const BookList = props => {
 
-    render() {
-        return (
-            this.props.books.map((book, index) => {
-                return (
-                    <Book
-                        bookName={book.bookName}
-                        Writer={book.writer}
-                        delete={() => this.props.deleteBookState(index)}
-                        key={book.id}
-                        inputName={(event) => this.props.changeWithInputState(event, index)}
-                    />
-                );
-            })
+    return (
+        props.books.map((book, index) => {
+            return (
+                <Book
+                    bookName={book.bookName}
+                    Writer={book.writer}
+                    delete={() => this.props.deleteBookState(index)}
+                    key={book.id}
+                    inputName={(event) => this.props.changeWithInputState(event, index)}
+                />
+            );
+        })
 
 
-        );
-    }
+    );
 }
 
 

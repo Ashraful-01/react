@@ -56,8 +56,8 @@ class MainComponent extends Component {
                     </ul>
                 </div>
 
-                <route path="/" exact render={() => <h1>Home</h1>} />
-                <route path="/new-book" exat render={() => <h1>New Book</h1>} />
+                <route path="/" exact render={() => books} />
+                <route path="/new-book" exat render={() => NewBook} />
             </div>
         );
     }
