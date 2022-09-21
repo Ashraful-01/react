@@ -15,6 +15,23 @@ class BookList extends Component {
         console.log("BookList componentDidMount!");
     }
 
+    UNSAFE_componentWillReceiveProps(nextprops) {
+        console.log("U BookList componentWillReceiveprops", nextprops);
+    }
+//we can control by using shoouldcomponentupdate 
+    shouldComponentUpdate(nextprops, nextState) {
+        console.log("u Booklist shouldComponentUpdate", nextprops, nextState);
+        return false;
+    }
+
+    UNSAFE_componentWillUpdate(nextprops, nextState) {
+        console.log("u BookList ComponentWillUpdate");
+    }
+
+    componentDidUpdate() {
+        console.log("U BookList componentDidUpdate");
+    }
+
     render() {
         console.log("BookList render!");
         return (
