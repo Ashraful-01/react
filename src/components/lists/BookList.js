@@ -18,10 +18,10 @@ class BookList extends Component {
     UNSAFE_componentWillReceiveProps(nextprops) {
         console.log("U BookList componentWillReceiveprops", nextprops);
     }
-//we can control by using shoouldcomponentupdate 
+    //we can control by using shoouldcomponentupdate 
     shouldComponentUpdate(nextprops, nextState) {
         console.log("u Booklist shouldComponentUpdate", nextprops, nextState);
-        return false;
+        return true;
     }
 
     UNSAFE_componentWillUpdate(nextprops, nextState) {
