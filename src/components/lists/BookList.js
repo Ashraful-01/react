@@ -7,29 +7,29 @@ class BookList extends Component {
         super(props);
         console.log("BookList constructor")
     }
-    UNSAFE_componentWillMount() {
-        console.log("BookList componentWillMount!");
-    }
+
 
     componentDidMount() {
         console.log("BookList componentDidMount!");
     }
 
-    UNSAFE_componentWillReceiveProps(nextprops) {
-        console.log("U BookList componentWillReceiveprops", nextprops);
-    }
+
     //we can control by using shoouldcomponentupdate 
     shouldComponentUpdate(nextprops, nextState) {
         console.log("u Booklist shouldComponentUpdate", nextprops, nextState);
         return true;
     }
 
-    UNSAFE_componentWillUpdate(nextprops, nextState) {
-        console.log("u BookList ComponentWillUpdate");
-    }
 
     componentDidUpdate() {
         console.log("U BookList componentDidUpdate");
+    }
+    static getDrivedStateFormProps(nextprops, prevState) {
+        console.log("booklist getDerivedFromProps", nextprops, prevState);
+        return prevState;
+    }
+    getSnapshotBeforeUpdate(){
+        console.log("u boollist getSnapshotforeupdate")
     }
 
     render() {
