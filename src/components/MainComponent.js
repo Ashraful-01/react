@@ -40,11 +40,6 @@ class MainComponent extends Component {
     toggleBooks = () => {
         this.setState({ showBooks: !this.state.showBooks });
     }
-
-    UNSAFE_componentWillMount() {
-        console.log("MainCOmponent componentWillMount!");
-    }
-
     componentDidMount() {
         console.log("MainComponent componentDidMount!");
     }
@@ -53,14 +48,22 @@ class MainComponent extends Component {
         console.log("U mainCompoent shouldComponentUpdate", nextprops, nextState);
         return true;
     }
+    componentDidUpdate() {
+        console.log("u mainCompnent componentDidUpdate");
+    }
+
+
+    UNSAFE_componentWillMount() {
+        console.log("MainCOmponent componentWillMount!");
+    }
+
 
     UNSAFE_componentWillUpdate(nextprops, nextState) {
         console.log("u maincomponent ComponentWillUpdate");
     }
 
-    componentDidUpdate() {
-        console.log("u mainCompnent componentDidUpdate");
-    }
+    
+
 
 
     render() {
