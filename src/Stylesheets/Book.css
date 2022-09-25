@@ -6,12 +6,7 @@
     border-radius: 5px;
 }
 
-
-
-
-
-
-
-
-
-
+.Book:hover {
+    color: aliceblue;
+    cursor: pointer;
+}

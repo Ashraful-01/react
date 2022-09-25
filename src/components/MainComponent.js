@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import booklist from '../assets/books';
 import BookList from './lists/BookList';
+import booklist from '../assets/books';
 import NewBook from './representationalComponent/NewBook';
-import { route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
+
+
 
 
 
@@ -11,54 +13,38 @@ class MainComponent extends Component {
         super(props);
         this.state = {
             books: booklist
-
         }
-
     }
-
-    changeWithInputState = (event, index) => {
-        const book = {
-            ...this.state.books[index]
-        }
-        book.bookName = event.target.value;
-        const books = [...this.state.books];
-        books[index] = book;
-
-        this.setState({ books: books });
-    }
-
-    deleteBookState = index => {
-        const books = [...this.state.books];
-        books.splice(index, 1);
-        this.setState({
-            books: books
-        });
-    };
-
-
 
 
 
     render() {
-
         const books = <BookList
             books={this.state.books}
-            deleteBookState={this.deleteBookState}
-            changeWithInputState={this.changeWithInputState}
+
         />
 
-        return (
-            <div className="App">
-                <div className='nav-bar'>
-                    <ul>
-                        <li><a href="/">Home</a> </li>
-                        <li><a href="/new-book">New Book</a></li>
-                    </ul>
-                </div>
 
-                <route path="/" exact render={() => books} />
-                <route path="/new-book" exat render={() => NewBook} />
+        return (
+
+            <div className="App">
+
+                <nav className="nav-bar">
+                    <ul>
+                        <li><NavLink to="/" exact>Home</NavLink></li>
+                        <li><NavLink to="/new-book">New Book</NavLink></li>
+                    </ul>
+                </nav>
+
+                {books}
+                <NewBook />
+
+                <Route path="/" exact render={() => books} />
+                <Route path="/new-book" exact render={NewBook} />
+
+
             </div>
+
         );
     }
 }

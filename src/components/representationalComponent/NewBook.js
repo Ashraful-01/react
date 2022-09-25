@@ -2,7 +2,9 @@ import React from 'react';
 
 
 
-const NewBook = () => {
+
+const NewBook = props => {
+    console.log(props);
     return (
         <div>
             <h1>Enter New Book</h1>
