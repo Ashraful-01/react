@@ -11,6 +11,7 @@ class BookList extends Component {
                         bookName={book.bookName}
                         Writer={book.writer}
                         key={book.id}
+                        selectedBookHandler={() => this.props.selectedBookHandler(book.id)}
                     />
                 );
             })

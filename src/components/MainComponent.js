@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BookList from './lists/BookList';
 import booklist from '../assets/books';
 import NewBook from './representationalComponent/NewBook';
+import BookDetails from './representationalComponent/BookDetails';
 import { Route, NavLink } from 'react-router-dom';
 
 
@@ -12,8 +13,16 @@ class MainComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            books: booklist
+            books: booklist,
+            selectedBok: null
         }
+    }
+    selectedBookHandler = bookId => {
+        const book = this.state.books.filter(book =>
+            book.id === bookId)[0];
+        this.setState({
+            selectedBook: book
+        });
     }
 
 
@@ -21,6 +30,7 @@ class MainComponent extends Component {
     render() {
         const books = <BookList
             books={this.state.books}
+            selectedBookHandler={this.selectedBookHandler}
 
         />
 
@@ -41,6 +51,7 @@ class MainComponent extends Component {
 
                 <Route path="/" exact render={() => books} />
                 <Route path="/new-book" exact render={NewBook} />
+                <BookDetails book={this.state.selectedBook} />
 
 
             </div>
